@@ -18,8 +18,8 @@ export const projects: Project[] = [
     accent: "cyan",
   },
   {
-    id: "bitacora",
-    title: "Psycalendar",
+    id: "psychcalendar",
+    title: "PsychCalendar",
     description:
       "Sistema de gestión para psicólogos con registro de pacientes y sesiones.",
     tags: ["HTML", "CSS", "JavaScript"],
@@ -36,12 +36,12 @@ export const projects: Project[] = [
     accent: "amber",
   },
   {
-    id: "portfolio",
-    title: "mi-portfolio",
+    id: "api",
+    title: "User CRUD API",
     description:
-      "App web fullstack con autenticación, base de datos en tiempo real y emails automáticos.",
-    tags: ["Autenticación", "Real-time DB", "Email"],
-    repoUrl: "https://github.com/SaulSantor/mi-portfolio",
+      "API REST con operaciones CRUD completas para gestión de usuarios.",
+    tags: ["JavaScript", "API REST", "CRUD"],
+    repoUrl: "https://github.com/SaulSantor/API",
     accent: "rose",
   },
   {

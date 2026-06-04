@@ -3,16 +3,15 @@ import type { Locale } from "./types";
 const es = {
   meta: {
     role: "Desarrollador Frontend & Mobile",
-    tagline:
-      "Interfaces limpias, apps que funcionan y código con propósito.",
+    tagline: "Interfaces limpias, apps que funcionan y código con propósito.",
   },
   nav: {
     home: "Inicio",
+    projects: "Proyectos",
     about: "Sobre mí",
+    skills: "Skills",
     experience: "Experiencia",
     education: "Educación",
-    skills: "Skills",
-    projects: "Proyectos",
     contact: "Contacto",
   },
   hero: {
@@ -25,9 +24,9 @@ const es = {
     label: "Sobre mí",
     title: "Código con claridad y curiosidad",
     paragraphs: [
-      "Soy desarrollador frontend y mobile con enfoque en experiencias digitales claras, accesibles y con buen rendimiento.",
-      "Trabajo con React Native, Next.js y stacks fullstack — desde apps móviles hasta backends con Python y bases de datos en tiempo real.",
-      "Me motiva transformar ideas en productos útiles, ya sea bienestar digital, herramientas profesionales o APIs que conectan datos en vivo.",
+      "Soy desarrollador frontend y mobile originario de Chihuahua, egresado de la Universidad Tecnológica de Chihuahua en modalidad bilingüe.",
+      "Trabajo con React Native, Next.js y stacks fullstack — desde apps móviles hasta backends con Python, bases de datos en tiempo real e IoT.",
+      "Me motiva transformar ideas en productos útiles. He trabajado en startups, construido sistemas para psicólogos, apps de bienestar con sensores físicos y más.",
     ],
     highlights: [
       { label: "Frontend", value: "React · Next.js" },
@@ -75,8 +74,7 @@ const es = {
   skills: {
     label: "Skills",
     title: "Stack y herramientas",
-    subtitle:
-      "Tecnologías que uso en desarrollo web, mobile y backends.",
+    subtitle: "Tecnologías que uso en desarrollo web, mobile y backends.",
     categories: {
       frontend: "Frontend",
       backend: "Backend",
@@ -100,7 +98,7 @@ const es = {
         description:
           "App de bienestar mental: móvil React Native, web, backend Flask/Python, MongoDB e IoT con sensores de ritmo cardíaco y respiración.",
       },
-      bitacora: {
+      psychcalendar: {
         description:
           "Sistema de gestión para psicólogos con registro de pacientes y sesiones.",
       },
@@ -108,10 +106,10 @@ const es = {
         description:
           "App móvil para organización y seguimiento del tiempo personal.",
       },
-      portfolio: {
+      api: {
         description:
-          "App web fullstack con autenticación, base de datos en tiempo real y emails automáticos.",
-        tags: ["Autenticación", "Real-time DB", "Email"],
+          "API REST con operaciones CRUD completas para gestión de usuarios.",
+        tags: ["JavaScript", "API REST", "CRUD"],
       },
       apideportes: {
         description:
@@ -144,11 +142,11 @@ const en = {
   },
   nav: {
     home: "Home",
+    projects: "Projects",
     about: "About",
+    skills: "Skills",
     experience: "Experience",
     education: "Education",
-    skills: "Skills",
-    projects: "Projects",
     contact: "Contact",
   },
   hero: {
@@ -161,9 +159,9 @@ const en = {
     label: "About",
     title: "Clear code, genuine curiosity",
     paragraphs: [
-      "I'm a frontend and mobile developer focused on clear, accessible digital experiences with solid performance.",
-      "I work with React Native, Next.js, and full-stack setups — from mobile apps to Python backends and real-time databases.",
-      "I'm driven by turning ideas into useful products, whether that's digital wellness, professional tools, or APIs that surface live data.",
+      "I'm a frontend and mobile developer from Chihuahua, Mexico, graduated from Universidad Tecnológica de Chihuahua in the bilingual program.",
+      "I work with React Native, Next.js, and full-stack setups — from mobile apps to Python backends, real-time databases, and IoT devices.",
+      "I enjoy turning ideas into real products. I've worked at startups, built management systems, wellness apps with physical sensors, and more.",
     ],
     highlights: [
       { label: "Frontend", value: "React · Next.js" },
@@ -189,8 +187,7 @@ const en = {
   education: {
     label: "Education",
     title: "Academic background",
-    subtitle:
-      "University path in engineering and information technology.",
+    subtitle: "University path in engineering and information technology.",
     entries: {
       utch: {
         modality: "Bilingual Program",
@@ -211,8 +208,7 @@ const en = {
   skills: {
     label: "Skills",
     title: "Stack & tools",
-    subtitle:
-      "Technologies I use across web, mobile, and backend development.",
+    subtitle: "Technologies I use across web, mobile, and backend development.",
     categories: {
       frontend: "Frontend",
       backend: "Backend",
@@ -236,18 +232,16 @@ const en = {
         description:
           "Mental wellness app: React Native mobile, web client, Flask/Python backend, MongoDB, and IoT with heart rate and breathing sensors.",
       },
-      bitacora: {
+      psychcalendar: {
         description:
           "Management system for psychologists with patient and session records.",
       },
       mytime: {
-        description:
-          "Mobile app for organizing and tracking personal time.",
+        description: "Mobile app for organizing and tracking personal time.",
       },
-      portfolio: {
-        description:
-          "Full-stack web app with authentication, real-time database, and automated emails.",
-        tags: ["Authentication", "Real-time DB", "Email"],
+      api: {
+        description: "REST API with full CRUD operations for user management.",
+        tags: ["JavaScript", "API REST", "CRUD"],
       },
       apideportes: {
         description:
@@ -283,10 +277,10 @@ export function getTranslations(locale: Locale): TranslationKeys {
 
 export const navItems = [
   { key: "home" as const, href: "#hero" },
+  { key: "projects" as const, href: "#projects" },
   { key: "about" as const, href: "#about" },
+  { key: "skills" as const, href: "#skills" },
   { key: "experience" as const, href: "#experience" },
   { key: "education" as const, href: "#education" },
-  { key: "skills" as const, href: "#skills" },
-  { key: "projects" as const, href: "#projects" },
   { key: "contact" as const, href: "#contact" },
 ];
