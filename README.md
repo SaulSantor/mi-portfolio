@@ -16,5 +16,5 @@ Portfolio personal desarrollado con Next.js, TypeScript y Tailwind CSS.
 
 ## 🔗 Links
 
-- [Portfolio en vivo](#) — próximamente en Vercel
+- [Portfolio en vivo](https://mi-portfolio-roan-delta.vercel.app/)
 - [GitHub](https://github.com/SaulSantor)
