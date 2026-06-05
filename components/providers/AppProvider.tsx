@@ -67,8 +67,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const initialLocale = readStoredLocale();
     const initialTheme = readStoredTheme();
+    /* eslint-disable react-hooks/set-state-in-effect */
     setLocaleState(initialLocale);
     setThemeState(initialTheme);
+    /* eslint-enable react-hooks/set-state-in-effect */
     applyTheme(initialTheme);
     applyLocale(initialLocale);
     setMounted(true);

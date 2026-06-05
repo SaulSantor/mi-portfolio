@@ -5,7 +5,6 @@ import { useApp } from "@/components/providers/AppProvider";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { navItems } from "@/lib/i18n/translations";
-import { surface } from "@/lib/styles/theme";
 
 export function Header() {
   const { t } = useApp();
@@ -20,24 +19,28 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? `border-b ${surface.headerScrolled}` : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "border-b border-slate-200 bg-white/80 backdrop-blur-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] supports-[backdrop-filter]:bg-white/70 dark:border-white/10 dark:bg-zinc-950/70 dark:supports-[backdrop-filter]:bg-zinc-950/60 dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)]"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3.5 sm:px-6">
         <a
           href="#hero"
-          className="shrink-0 text-sm font-semibold tracking-tight text-zinc-900 transition-colors hover:text-cyan-600 dark:text-zinc-100 dark:hover:text-cyan-300"
+          aria-label="Inicio"
+          className="group flex shrink-0 items-center gap-1 text-base font-bold tracking-tight"
         >
-          SS<span className="text-cyan-500 dark:text-cyan-400">.</span>
+          <span className="gradient-text text-lg">SS</span>
+          <span className="text-lg text-cyan-600 dark:text-cyan-400">.</span>
         </a>
 
-        <ul className="hidden items-center gap-4 lg:flex xl:gap-6">
+        <ul className="hidden items-center gap-1 rounded-full border border-slate-200 bg-white/80 px-2 py-1 backdrop-blur-md shadow-sm lg:flex dark:border-white/10 dark:bg-white/[0.04]">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className={`text-sm transition-colors ${surface.navLink}`}
+                className="rounded-full px-3 py-1.5 text-sm text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-zinc-50"
               >
                 {t.nav[item.key]}
               </a>
@@ -50,7 +53,7 @@ export function Header() {
           <LanguageToggle />
           <a
             href="#contact"
-            className={`hidden rounded-full border px-3 py-1.5 text-sm font-medium transition-all sm:inline-flex ${surface.btnPrimary} hover:border-cyan-500/50 hover:text-cyan-700 dark:hover:text-cyan-200`}
+            className="hidden items-center gap-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 px-4 py-1.5 text-sm font-semibold text-zinc-950 shadow-[0_4px_20px_-6px_rgba(6,182,212,0.45)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_6px_24px_-6px_rgba(34,211,238,0.55)] sm:inline-flex"
           >
             {t.nav.contact}
           </a>

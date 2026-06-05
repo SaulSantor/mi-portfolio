@@ -10,24 +10,43 @@ const labelAccent: Record<
   (typeof skillCategories)[number]["accent"],
   string
 > = {
-  cyan: "text-cyan-600 dark:text-cyan-400",
-  violet: "text-violet-600 dark:text-violet-400",
-  emerald: "text-emerald-600 dark:text-emerald-400",
-  amber: "text-amber-600 dark:text-amber-400",
-  rose: "text-rose-600 dark:text-rose-400",
+  cyan: "text-cyan-700 dark:text-cyan-300",
+  violet: "text-violet-700 dark:text-violet-300",
+  emerald: "text-emerald-700 dark:text-emerald-300",
+  amber: "text-amber-700 dark:text-amber-300",
+  rose: "text-rose-700 dark:text-rose-300",
+};
+
+const cardAccent: Record<
+  (typeof skillCategories)[number]["accent"],
+  string
+> = {
+  cyan: "before:bg-gradient-to-r before:from-cyan-500/0 before:via-cyan-500/40 before:to-cyan-500/0 dark:before:via-cyan-400/40",
+  violet:
+    "before:bg-gradient-to-r before:from-violet-500/0 before:via-violet-500/40 before:to-violet-500/0 dark:before:via-violet-400/40",
+  emerald:
+    "before:bg-gradient-to-r before:from-emerald-500/0 before:via-emerald-500/40 before:to-emerald-500/0 dark:before:via-emerald-400/40",
+  amber:
+    "before:bg-gradient-to-r before:from-amber-500/0 before:via-amber-500/40 before:to-amber-500/0 dark:before:via-amber-400/40",
+  rose: "before:bg-gradient-to-r before:from-rose-500/0 before:via-rose-500/40 before:to-rose-500/0 dark:before:via-rose-400/40",
 };
 
 export function Skills() {
   const { t } = useApp();
 
   return (
-    <section id="skills" className={`px-6 py-24 ${surface.section}`}>
-      <div className="mx-auto max-w-5xl">
+    <section
+      id="skills"
+      className={`bg-slate-50 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
+    >
+      <div className="mx-auto max-w-6xl">
         <ScrollReveal>
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-violet-600 dark:text-violet-400">
+          <p className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-violet-700 dark:text-violet-300">
             {t.skills.label}
           </p>
-          <h2 className={`mb-4 text-3xl font-bold tracking-tight sm:text-4xl ${surface.heading}`}>
+          <h2
+            className={`mb-4 text-3xl font-bold tracking-tight sm:text-4xl ${surface.heading}`}
+          >
             {t.skills.title}
           </h2>
           <p className={`mb-12 max-w-2xl ${surface.muted}`}>
@@ -35,33 +54,29 @@ export function Skills() {
           </p>
         </ScrollReveal>
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           {skillCategories.map((category, index) => {
             const label =
               t.skills.categories[
                 category.id as keyof typeof t.skills.categories
               ];
-            const skills =
-              category.id === "cms"
-                ? [t.skills.items.cms]
-                : category.skills;
 
             return (
-              <ScrollReveal
-                key={category.id}
-                delay={index * 60}
-                className={category.id === "cms" ? "sm:col-span-2" : ""}
-              >
+              <ScrollReveal key={category.id} delay={index * 60}>
                 <div
-                  className={`h-full rounded-2xl border p-5 transition-colors hover:border-zinc-400 sm:p-6 dark:hover:border-zinc-700 ${surface.cardSolid}`}
+                  className={`group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.18)] sm:p-7 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px dark:border-white/10 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] dark:hover:border-cyan-400/30 dark:hover:shadow-[0_20px_60px_-20px_rgba(34,211,238,0.25)] ${cardAccent[category.accent]}`}
                 >
                   <h3
-                    className={`mb-4 text-sm font-semibold uppercase tracking-wider ${labelAccent[category.accent]}`}
+                    className={`mb-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] ${labelAccent[category.accent]}`}
                   >
+                    <span
+                      className="h-1.5 w-1.5 rounded-full bg-current"
+                      aria-hidden
+                    />
                     {label}
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {skills.map((skill) => (
+                    {category.skills.map((skill) => (
                       <SkillBadge
                         key={skill}
                         label={skill}

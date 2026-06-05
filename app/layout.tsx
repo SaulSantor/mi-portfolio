@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Outfit } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AppProvider } from "@/components/providers/AppProvider";
@@ -7,8 +7,8 @@ import { ThemeScript } from "@/components/providers/ThemeScript";
 import { siteConfig } from "@/lib/data/site";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -38,12 +38,12 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${outfit.variable} ${jetbrains.variable} dark h-full antialiased`}
+      className={`${inter.variable} ${jetbrains.variable} dark h-full antialiased`}
     >
       <head>
         <ThemeScript />
       </head>
-      <body className="min-h-full bg-zinc-50 font-sans text-zinc-900 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-100">
+      <body className="min-h-full font-sans text-zinc-50 antialiased">
         <AppProvider>
           <Header />
           <main>{children}</main>

@@ -4,6 +4,7 @@ export type Project = {
   description: string;
   tags: string[];
   repoUrl?: string;
+  demoUrl?: string;
   accent: "cyan" | "violet" | "amber" | "rose" | "emerald";
 };
 
@@ -36,6 +37,16 @@ export const projects: Project[] = [
     accent: "amber",
   },
   {
+    id: "taskmanager",
+    title: "Task Manager Simple",
+    description:
+      "App de gestión de tareas migrada de arquitectura monolítica a serverless. Login, CRUD, comentarios, historial, notificaciones, búsqueda y exportación CSV.",
+    tags: ["HTML", "CSS", "JavaScript", "Vercel Serverless"],
+    repoUrl: "https://github.com/SaulSantor/TaskManagerSimple",
+    demoUrl: "https://task-manager-simple.vercel.app/",
+    accent: "emerald",
+  },
+  {
     id: "api",
     title: "User CRUD API",
     description:
@@ -51,6 +62,6 @@ export const projects: Project[] = [
       "App web que consume y presenta datos deportivos mediante APIs.",
     tags: ["HTML", "JavaScript", "APIs"],
     repoUrl: "https://github.com/SaulSantor/APIDeportes",
-    accent: "emerald",
+    accent: "cyan",
   },
 ];

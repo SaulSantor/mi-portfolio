@@ -80,10 +80,6 @@ const es = {
       backend: "Backend",
       database: "Base de datos",
       tools: "Herramientas",
-      cms: "CMS",
-    },
-    items: {
-      cms: "Gestión de contenido",
     },
   },
   projects: {
@@ -92,6 +88,7 @@ const es = {
     subtitle:
       "Una selección de apps móviles, webs y backends — desde bienestar digital hasta APIs deportivas.",
     viewRepo: "Ver repositorio",
+    viewDemo: "Ver demo",
     private: "Proyecto privado / en desarrollo",
     items: {
       serenity: {
@@ -105,6 +102,10 @@ const es = {
       mytime: {
         description:
           "App móvil para organización y seguimiento del tiempo personal.",
+      },
+      taskmanager: {
+        description:
+          "App de gestión de tareas migrada de arquitectura monolítica a serverless. Login, CRUD, comentarios, historial, notificaciones, búsqueda y exportación CSV.",
       },
       api: {
         description:
@@ -122,7 +123,9 @@ const es = {
     title: "¿Hablamos?",
     subtitle:
       "Si tienes una idea, un proyecto o simplemente quieres conectar, escríbeme o revisa mi trabajo en GitHub.",
-    githubCta: "GitHub — SaulSantor",
+    githubCta: "GitHub",
+    linkedinCta: "LinkedIn",
+    emailCta: "Email",
   },
   footer: {
     builtWith: "Hecho con Next.js y Tailwind.",
@@ -214,10 +217,6 @@ const en = {
       backend: "Backend",
       database: "Database",
       tools: "Tools",
-      cms: "CMS",
-    },
-    items: {
-      cms: "Content management",
     },
   },
   projects: {
@@ -226,6 +225,7 @@ const en = {
     subtitle:
       "A selection of mobile apps, websites, and backends — from digital wellness to sports APIs.",
     viewRepo: "View repository",
+    viewDemo: "View demo",
     private: "Private / work in progress",
     items: {
       serenity: {
@@ -238,6 +238,10 @@ const en = {
       },
       mytime: {
         description: "Mobile app for organizing and tracking personal time.",
+      },
+      taskmanager: {
+        description:
+          "Task management app migrated from monolithic to serverless architecture. Login, CRUD, comments, history, notifications, search and CSV export.",
       },
       api: {
         description: "REST API with full CRUD operations for user management.",
@@ -254,7 +258,9 @@ const en = {
     title: "Let's talk",
     subtitle:
       "Whether you have an idea, a project, or just want to connect — reach out or check my work on GitHub.",
-    githubCta: "GitHub — SaulSantor",
+    githubCta: "GitHub",
+    linkedinCta: "LinkedIn",
+    emailCta: "Email",
   },
   footer: {
     builtWith: "Built with Next.js and Tailwind.",

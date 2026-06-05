@@ -2,13 +2,12 @@
 
 import { useApp } from "@/components/providers/AppProvider";
 import type { Project } from "@/lib/data/projects";
-import { Tag } from "./Tag";
-import { surface } from "@/lib/styles/theme";
+import { getSkillIcon } from "@/lib/data/skillIcons";
 
 function ExternalLinkIcon() {
   return (
     <svg
-      className="h-4 w-4 opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      className="h-3.5 w-3.5 opacity-80 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -24,23 +23,58 @@ function ExternalLinkIcon() {
   );
 }
 
-const accentStyles: Record<Project["accent"], string> = {
-  cyan: "from-cyan-500/25 to-cyan-500/5 border-cyan-500/40 group-hover:border-cyan-500/60 dark:from-cyan-500/20 dark:to-cyan-500/5 dark:border-cyan-500/30 dark:group-hover:border-cyan-400/50",
+function PlayIcon() {
+  return (
+    <svg
+      className="h-3.5 w-3.5 opacity-80 transition-transform group-hover:scale-110"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      aria-hidden
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M14.752 11.168l-5.197-3.03A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.03a1 1 0 000-1.664z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  );
+}
+
+const accentGlow: Record<Project["accent"], string> = {
+  cyan: "group-hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.25)] group-hover:border-cyan-500/50 dark:group-hover:shadow-[0_20px_60px_-20px_rgba(34,211,238,0.45)] dark:group-hover:border-cyan-400/40",
   violet:
-    "from-violet-500/25 to-violet-500/5 border-violet-500/40 group-hover:border-violet-500/60 dark:from-violet-500/20 dark:to-violet-500/5 dark:border-violet-500/30 dark:group-hover:border-violet-400/50",
+    "group-hover:shadow-[0_12px_30px_-12px_rgba(139,92,246,0.22)] group-hover:border-violet-500/50 dark:group-hover:shadow-[0_20px_60px_-20px_rgba(165,180,252,0.4)] dark:group-hover:border-violet-400/40",
   amber:
-    "from-amber-500/25 to-amber-500/5 border-amber-500/40 group-hover:border-amber-500/60 dark:from-amber-500/20 dark:to-amber-500/5 dark:border-amber-500/30 dark:group-hover:border-amber-400/50",
-  rose: "from-rose-500/25 to-rose-500/5 border-rose-500/40 group-hover:border-rose-500/60 dark:from-rose-500/20 dark:to-rose-500/5 dark:border-rose-500/30 dark:group-hover:border-rose-400/50",
+    "group-hover:shadow-[0_12px_30px_-12px_rgba(245,158,11,0.22)] group-hover:border-amber-500/50 dark:group-hover:shadow-[0_20px_60px_-20px_rgba(251,191,36,0.35)] dark:group-hover:border-amber-400/40",
+  rose: "group-hover:shadow-[0_12px_30px_-12px_rgba(244,63,94,0.22)] group-hover:border-rose-500/50 dark:group-hover:shadow-[0_20px_60px_-20px_rgba(251,113,133,0.35)] dark:group-hover:border-rose-400/40",
   emerald:
-    "from-emerald-500/25 to-emerald-500/5 border-emerald-500/40 group-hover:border-emerald-500/60 dark:from-emerald-500/20 dark:to-emerald-500/5 dark:border-emerald-500/30 dark:group-hover:border-emerald-400/50",
+    "group-hover:shadow-[0_12px_30px_-12px_rgba(16,185,129,0.25)] group-hover:border-emerald-500/50 dark:group-hover:shadow-[0_20px_60px_-20px_rgba(52,211,153,0.4)] dark:group-hover:border-emerald-400/40",
 };
 
-const dotStyles: Record<Project["accent"], string> = {
+const accentDot: Record<Project["accent"], string> = {
   cyan: "bg-cyan-500 dark:bg-cyan-400",
   violet: "bg-violet-500 dark:bg-violet-400",
   amber: "bg-amber-500 dark:bg-amber-400",
   rose: "bg-rose-500 dark:bg-rose-400",
   emerald: "bg-emerald-500 dark:bg-emerald-400",
+};
+
+const accentButton: Record<Project["accent"], string> = {
+  cyan: "border-cyan-500/30 text-cyan-700 hover:bg-cyan-50 hover:border-cyan-500/60 dark:border-cyan-400/30 dark:text-cyan-200 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/60",
+  violet:
+    "border-violet-500/30 text-violet-700 hover:bg-violet-50 hover:border-violet-500/60 dark:border-violet-400/30 dark:text-violet-200 dark:hover:bg-violet-500/10 dark:hover:border-violet-400/60",
+  amber:
+    "border-amber-500/30 text-amber-700 hover:bg-amber-50 hover:border-amber-500/60 dark:border-amber-400/30 dark:text-amber-200 dark:hover:bg-amber-500/10 dark:hover:border-amber-400/60",
+  rose: "border-rose-500/30 text-rose-700 hover:bg-rose-50 hover:border-rose-500/60 dark:border-rose-400/30 dark:text-rose-200 dark:hover:bg-rose-500/10 dark:hover:border-rose-400/60",
+  emerald:
+    "border-emerald-500/30 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-500/60 dark:border-emerald-400/30 dark:text-emerald-200 dark:hover:bg-emerald-500/10 dark:hover:border-emerald-400/60",
 };
 
 type ProjectCardProps = {
@@ -57,41 +91,67 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      className={`group relative flex h-full flex-col rounded-2xl border bg-gradient-to-br p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-300/40 dark:hover:shadow-black/20 ${accentStyles[project.accent]}`}
+      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 sm:p-7 dark:border-white/10 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] ${accentGlow[project.accent]}`}
     >
-      <div className="mb-4 flex items-start justify-between gap-3">
-        <span
-          className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${dotStyles[project.accent]}`}
-          aria-hidden
-        />
-        <h3 className={`flex-1 text-xl font-semibold tracking-tight ${surface.heading}`}>
-          {project.title}
-        </h3>
+      <div className="mb-5 flex items-start justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <span
+            className={`h-2.5 w-2.5 shrink-0 rounded-full ${accentDot[project.accent]}`}
+            aria-hidden
+          />
+          <h3 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-zinc-50">
+            {project.title}
+          </h3>
+        </div>
       </div>
 
-      <p className={`mb-6 flex-1 text-sm leading-relaxed ${surface.muted}`}>
+      <p className="mb-6 flex-1 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
         {description}
       </p>
 
-      <div className="mb-5 flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <Tag key={tag} label={tag} />
-        ))}
+      <div className="mb-5 flex flex-wrap gap-1.5">
+        {tags.map((tag) => {
+          const Icon = getSkillIcon(tag);
+          return (
+            <span
+              key={tag}
+              className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 transition-colors hover:border-cyan-500/50 hover:bg-cyan-50 hover:text-cyan-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:border-cyan-400/30 dark:hover:text-cyan-200"
+            >
+              {Icon ? <Icon className="h-3 w-3" /> : null}
+              {tag}
+            </span>
+          );
+        })}
       </div>
 
-      {project.repoUrl ? (
-        <a
-          href={project.repoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-cyan-700 dark:hover:text-white ${surface.subheading}`}
-        >
-          {t.projects.viewRepo}
-          <ExternalLinkIcon />
-        </a>
-      ) : (
-        <span className={`text-sm ${surface.faint}`}>{t.projects.private}</span>
-      )}
+      <div className="flex flex-wrap items-center gap-2">
+        {project.repoUrl ? (
+          <a
+            href={project.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group/btn inline-flex items-center gap-1.5 rounded-lg border bg-white px-3 py-1.5 text-xs font-medium backdrop-blur-sm transition-all duration-200 dark:bg-white/[0.02] ${accentButton[project.accent]}`}
+          >
+            <ExternalLinkIcon />
+            {t.projects.viewRepo}
+          </a>
+        ) : null}
+        {project.demoUrl ? (
+          <a
+            href={project.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group/btn inline-flex items-center gap-1.5 rounded-lg border bg-white px-3 py-1.5 text-xs font-medium backdrop-blur-sm transition-all duration-200 dark:bg-white/[0.02] ${accentButton[project.accent]}`}
+          >
+            <PlayIcon />
+            {t.projects.viewDemo}
+          </a>
+        ) : !project.repoUrl ? (
+          <span className="text-xs text-slate-500 dark:text-zinc-500">
+            {t.projects.private}
+          </span>
+        ) : null}
+      </div>
     </article>
   );
 }

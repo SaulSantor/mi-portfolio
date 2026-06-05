@@ -8,10 +8,13 @@ export function About() {
   const { t } = useApp();
 
   return (
-    <section id="about" className={`px-6 py-24 ${surface.section}`}>
+    <section
+      id="about"
+      className={`bg-white px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
+    >
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-cyan-600 dark:text-cyan-400">
+          <p className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
             {t.about.label}
           </p>
           <h2 className={`mb-8 text-3xl font-bold tracking-tight sm:text-4xl ${surface.heading}`}>
@@ -29,13 +32,13 @@ export function About() {
           </ScrollReveal>
 
           <ScrollReveal delay={160}>
-            <ul className="grid grid-cols-2 gap-4">
+            <ul className="grid grid-cols-2 gap-3">
               {t.about.highlights.map((item) => (
                 <li
                   key={item.label}
-                  className={`rounded-xl border p-4 transition-colors hover:border-zinc-400 dark:hover:border-zinc-700 ${surface.cardSolid}`}
+                  className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/40 hover:shadow-[0_8px_20px_-8px_rgba(6,182,212,0.2)] dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-cyan-400/30"
                 >
-                  <p className={`mb-1 text-xs font-medium uppercase tracking-wider ${surface.faint}`}>
+                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-zinc-500">
                     {item.label}
                   </p>
                   <p className={`text-sm font-medium ${surface.subheading}`}>
