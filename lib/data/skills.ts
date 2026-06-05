@@ -25,4 +25,9 @@ export const skillCategories: SkillCategory[] = [
     accent: "amber",
     skills: ["Git", "GitHub", "Cursor", "Expo"],
   },
+  {
+    id: "cms",
+    accent: "rose",
+    skills: [],
+  },
 ];

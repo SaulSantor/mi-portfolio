@@ -21,7 +21,8 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} — Frontend & Mobile Developer`,
-  description: "Portfolio de Saul Sanchez — desarrollador frontend y mobile.",
+  description:
+    "Portfolio de Saul Sanchez — desarrollador frontend y mobile.",
   openGraph: {
     title: `${siteConfig.name} — Portfolio`,
     type: "website",
@@ -37,7 +38,8 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${outfit.variable} ${jetbrains.variable} dark h-full antialiased`}>
+      className={`${outfit.variable} ${jetbrains.variable} dark h-full antialiased`}
+    >
       <head>
         <ThemeScript />
       </head>

@@ -13,7 +13,8 @@ function ExternalLinkIcon() {
       viewBox="0 0 24 24"
       stroke="currentColor"
       strokeWidth={2}
-      aria-hidden>
+      aria-hidden
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -48,20 +49,22 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const { t } = useApp();
-  const copy = t.projects.items[project.id as keyof typeof t.projects.items];
-  const tags = copy && "tags" in copy && copy.tags ? copy.tags : project.tags;
-  const description = copy?.description ?? project.description;
+  const copy =
+    t.projects.items[project.id as keyof typeof t.projects.items];
+  const tags =
+    "tags" in copy && copy.tags ? copy.tags : project.tags;
+  const description = copy.description;
 
   return (
     <article
-      className={`group relative flex h-full flex-col rounded-2xl border bg-gradient-to-br p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-300/40 dark:hover:shadow-black/20 ${accentStyles[project.accent]}`}>
+      className={`group relative flex h-full flex-col rounded-2xl border bg-gradient-to-br p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-300/40 dark:hover:shadow-black/20 ${accentStyles[project.accent]}`}
+    >
       <div className="mb-4 flex items-start justify-between gap-3">
         <span
           className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${dotStyles[project.accent]}`}
           aria-hidden
         />
-        <h3
-          className={`flex-1 text-xl font-semibold tracking-tight ${surface.heading}`}>
+        <h3 className={`flex-1 text-xl font-semibold tracking-tight ${surface.heading}`}>
           {project.title}
         </h3>
       </div>
@@ -76,33 +79,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
         ))}
       </div>
 
-      <div className="flex flex-wrap items-center gap-4">
-        {project.repoUrl ? (
-          <a
-            href={project.repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-cyan-700 dark:hover:text-white ${surface.subheading}`}>
-            {t.projects.viewRepo}
-            <ExternalLinkIcon />
-          </a>
-        ) : (
-          <span className={`text-sm ${surface.faint}`}>
-            {t.projects.private}
-          </span>
-        )}
-
-        {project.demoUrl ? (
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-cyan-700 dark:hover:text-white ${surface.subheading}`}>
-            Demo
-            <ExternalLinkIcon />
-          </a>
-        ) : null}
-      </div>
+      {project.repoUrl ? (
+        <a
+          href={project.repoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-cyan-700 dark:hover:text-white ${surface.subheading}`}
+        >
+          {t.projects.viewRepo}
+          <ExternalLinkIcon />
+        </a>
+      ) : (
+        <span className={`text-sm ${surface.faint}`}>{t.projects.private}</span>
+      )}
     </article>
   );
 }

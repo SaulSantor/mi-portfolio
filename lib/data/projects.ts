@@ -4,21 +4,10 @@ export type Project = {
   description: string;
   tags: string[];
   repoUrl?: string;
-  demoUrl?: string;
   accent: "cyan" | "violet" | "amber" | "rose" | "emerald";
 };
 
 export const projects: Project[] = [
-  {
-    id: "taskmanagersimple",
-    title: "Task Manager Simple",
-    description:
-      "App de gestión de tareas migrada de arquitectura monolítica a serverless. Incluye login, CRUD de tareas y proyectos, comentarios, historial, notificaciones, búsqueda avanzada y exportación CSV.",
-    tags: ["HTML", "CSS", "JavaScript", "Vercel Serverless Functions"],
-    repoUrl: "https://github.com/SaulSantor/TaskManagerSimple",
-    demoUrl: "https://task-manager-simple.vercel.app/",
-    accent: "violet",
-  },
   {
     id: "serenity",
     title: "Serenity",
