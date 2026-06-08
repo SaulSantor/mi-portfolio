@@ -115,7 +115,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           return (
             <span
               key={tag}
-              className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 transition-colors hover:border-cyan-500/50 hover:bg-cyan-50 hover:text-cyan-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:border-cyan-400/30 dark:hover:text-cyan-200"
+              className={`inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 transition-colors hover:border-cyan-500/50 hover:bg-cyan-50 hover:text-cyan-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:border-cyan-400/30 dark:hover:text-white dark:hover:bg-cyan-400/10 ${accentButton[project.accent]}`}
             >
               {Icon ? <Icon className="h-3 w-3" /> : null}
               {tag}

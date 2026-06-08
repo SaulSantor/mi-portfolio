@@ -4,6 +4,7 @@ import { useApp } from "@/components/providers/AppProvider";
 import { siteConfig } from "@/lib/data/site";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { surface } from "@/lib/styles/theme";
+import { useState } from "react";
 
 function GitHubIcon() {
   return (
@@ -75,6 +76,15 @@ function ArrowRightIcon() {
 
 export function Contact() {
   const { t } = useApp();
+  const [copied, setCopied] = useState(false);
+
+  const email = `${siteConfig.emailUser}@${siteConfig.emailDomain}`;
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <section
@@ -83,15 +93,15 @@ export function Contact() {
     >
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
-          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.08)] sm:p-12 dark:border-white/10 dark:bg-gradient-to-br dark:from-white/[0.07] dark:to-white/[0.02] dark:backdrop-blur-xl dark:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]">
-            <div
+          <div className="relative overflow-hidden rounded-3xl p-8 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.08)] sm:p-12">
+            {/* <div
               className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-cyan-300/20 blur-3xl dark:bg-cyan-500/20"
               aria-hidden
             />
             <div
               className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-violet-300/20 blur-3xl dark:bg-violet-500/20"
               aria-hidden
-            />
+            /> */}
 
             <div className="relative">
               <p className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-amber-700 dark:text-amber-300">
@@ -148,7 +158,7 @@ export function Contact() {
                 </a>
 
                 <a
-                  href={`mailto:${siteConfig.email}`}
+                  href={`mailto:${email}`}
                   className="group flex flex-col items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/60 hover:bg-violet-50/30 hover:shadow-[0_12px_30px_-12px_rgba(139,92,246,0.25)] dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-violet-400/40 dark:hover:bg-violet-500/[0.08] dark:hover:shadow-[0_12px_30px_-12px_rgba(165,180,252,0.35)]"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-violet-700 dark:border-white/10 dark:bg-zinc-950 dark:text-violet-300">
@@ -161,20 +171,23 @@ export function Contact() {
                     <ArrowRightIcon />
                   </div>
                   <span className="break-all font-mono text-xs text-slate-500 dark:text-zinc-500">
-                    {siteConfig.email}
+                    {t.contact.emailSend}
                   </span>
                 </a>
               </div>
 
-              <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/[0.03]">
+              <div
+                onClick={handleCopy}
+                className="mt-8 cursor-pointer rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all duration-200 hover:border-cyan-500/40 hover:bg-cyan-50/50 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-cyan-400/30 dark:hover:bg-white/[0.06]"
+              >
                 <p className="flex items-center gap-2 font-mono text-sm text-slate-700 dark:text-zinc-300">
                   <MailIcon className="h-4 w-4 text-cyan-700 dark:text-cyan-300" />
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="transition-colors hover:text-cyan-700 dark:hover:text-cyan-200"
-                  >
-                    {siteConfig.email}
-                  </a>
+                  <span className="transition-colors hover:text-cyan-700 dark:hover:text-cyan-200">
+                    {t.contact.emailCopy}
+                  </span>
+                  <span className="ml-auto text-xs text-slate-400 dark:text-zinc-500">
+                    {copied ? t.contact.emailCopied : t.contact.emailCopyBtn}
+                  </span>
                 </p>
               </div>
             </div>

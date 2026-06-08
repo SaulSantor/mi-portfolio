@@ -53,7 +53,7 @@ export function Header() {
           <LanguageToggle />
           <a
             href="#contact"
-            className="hidden items-center gap-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 px-4 py-1.5 text-sm font-semibold text-zinc-950 shadow-[0_4px_20px_-6px_rgba(6,182,212,0.45)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_6px_24px_-6px_rgba(34,211,238,0.55)] sm:inline-flex"
+            className="hidden items-center gap-1.5 rounded-full border border-slate-300 bg-white px-4 py-1.5 text-sm font-semibold text-slate-900 shadow-sm backdrop-blur-md shadow-[0_4px_20px_-6px_rgba(6,182,212,0.45)] transition-all duration-300 hover:scale-[1.03] hover:border-cyan-500/50 hover:bg-cyan-50/50 hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.3)] dark:border-white/15 dark:bg-white/[0.04] dark:text-zinc-100 dark:hover:border-cyan-400/40 dark:hover:bg-white/[0.07] dark:hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.4)] sm:inline-flex"
           >
             {t.nav.contact}
           </a>

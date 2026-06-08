@@ -4,50 +4,55 @@ import { useEffect, useState } from "react";
 
 type TypewriterProps = {
   text: string;
-  /** ms entre caracteres */
   speed?: number;
-  /** ms que el cursor parpadea tras terminar */
-  delay?: number;
+  deleteSpeed?: number;
+  pauseAfterWrite?: number;
+  pauseAfterDelete?: number;
   className?: string;
-  /** Muestra el cursor con parpadeo */
   cursor?: boolean;
 };
 
 export function Typewriter({
   text,
   speed = 55,
-  delay = 1200,
+  deleteSpeed = 35,
+  pauseAfterWrite = 2500,
+  pauseAfterDelete = 500,
   className = "",
   cursor = true,
 }: TypewriterProps) {
   const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
+  const [phase, setPhase] = useState<"typing" | "pausing" | "deleting" | "waiting">("typing");
 
   useEffect(() => {
-    /* eslint-disable react-hooks/set-state-in-effect */
-    setDisplayed("");
-    setDone(false);
-    /* eslint-enable react-hooks/set-state-in-effect */
-    let cancelled = false;
-    let i = 0;
+    let timer: ReturnType<typeof setTimeout>;
 
-    const step = () => {
-      if (cancelled) return;
-      i += 1;
-      setDisplayed(text.slice(0, i));
-      if (i >= text.length) {
-        setDone(true);
-        return;
+    if (phase === "typing") {
+      if (displayed.length < text.length) {
+        timer = setTimeout(() => {
+          setDisplayed(text.slice(0, displayed.length + 1));
+        }, speed);
+      } else {
+        timer = setTimeout(() => setPhase("pausing"), 0);
       }
-      timer = window.setTimeout(step, speed);
-    };
+    } else if (phase === "pausing") {
+      timer = setTimeout(() => setPhase("deleting"), pauseAfterWrite);
+    } else if (phase === "deleting") {
+      if (displayed.length > 0) {
+        timer = setTimeout(() => {
+          setDisplayed(displayed.slice(0, -1));
+        }, deleteSpeed);
+      } else {
+        timer = setTimeout(() => setPhase("waiting"), 0);
+      }
+    } else if (phase === "waiting") {
+      timer = setTimeout(() => setPhase("typing"), pauseAfterDelete);
+    }
 
-    let timer = window.setTimeout(step, speed);
-    return () => {
-      cancelled = true;
-      window.clearTimeout(timer);
-    };
-  }, [text, speed]);
+    return () => clearTimeout(timer);
+  }, [displayed, phase, text, speed, deleteSpeed, pauseAfterWrite, pauseAfterDelete]);
+
+  const isDone = phase === "pausing";
 
   return (
     <span className={className} aria-label={text}>
@@ -56,11 +61,10 @@ export function Typewriter({
         <span
           aria-hidden
           className={`ml-0.5 inline-block h-[1em] w-[2px] translate-y-[0.15em] bg-current align-middle ${
-            done ? "animate-blink" : "animate-pulse"
+            isDone ? "animate-blink" : "animate-pulse"
           }`}
         />
       )}
-      {!cursor && done === false && delay > 0 ? null : null}
     </span>
   );
 }

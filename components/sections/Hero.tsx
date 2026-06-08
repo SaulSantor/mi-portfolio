@@ -24,14 +24,14 @@ function ChevronDown() {
   );
 }
 
-function initialsOf(name: string) {
+/* function initialsOf(name: string) {
   return name
     .split(" ")
     .map((w) => w[0])
     .slice(0, 2)
     .join("")
     .toUpperCase();
-}
+} */
 
 export function Hero() {
   const { t, mounted } = useApp();
@@ -61,12 +61,12 @@ export function Hero() {
               "radial-gradient(ellipse 50% 40% at center, black 30%, transparent 80%)",
           }}
         />
-        <div
+        {/* <div
           className="absolute inset-x-0 bottom-0 h-40"
           style={{
             background: "linear-gradient(to bottom, transparent, #f8fafc)",
           }}
-        />
+        /> */}
         <div
           className="absolute inset-x-0 bottom-0 hidden h-40 dark:block"
           style={{
@@ -77,7 +77,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
-        <ScrollReveal>
+        {/* <ScrollReveal>
           <div className="mb-6 flex justify-center">
             <div className="relative">
               <div
@@ -103,7 +103,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-        </ScrollReveal>
+        </ScrollReveal> */}
 
         <ScrollReveal delay={80}>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-medium text-slate-700 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300">
@@ -132,7 +132,13 @@ export function Hero() {
             style={{ minHeight: "2.2em" }}
           >
             {mounted ? (
-              <Typewriter text={t.meta.role} speed={55} />
+              <Typewriter
+                text={t.meta.role}
+                speed={55}
+                deleteSpeed={35}
+                pauseAfterWrite={2500}
+                pauseAfterDelete={500}
+              />
             ) : (
               <span aria-hidden>&nbsp;</span>
             )}
@@ -149,7 +155,7 @@ export function Hero() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 px-7 py-3 text-sm font-semibold text-zinc-950 shadow-[0_8px_30px_-8px_rgba(6,182,212,0.45)] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_12px_40px_-8px_rgba(34,211,238,0.55)] active:scale-[0.99]"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-medium text-slate-900 shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-[1.04] hover:border-cyan-600/50 hover:bg-cyan-600 hover:text-white hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.3)] dark:border-white/15 dark:bg-white/[0.04] dark:text-zinc-100 dark:hover:border-cyan-600/40 dark:hover:bg-cyan-600 dark:hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.4)]"
             >
               {t.hero.ctaProjects}
               <svg

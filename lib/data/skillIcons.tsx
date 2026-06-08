@@ -197,6 +197,38 @@ export const skillIcons: Record<string, (props: IconProps) => React.JSX.Element>
       </g>
     </svg>
   ),
+  "SQL Server": (p) => (
+    <svg {...base(p)}>
+      <path fill="#CC2927" d="M12 3C7.6 3 4 4.3 4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6c0-1.7-3.6-3-8-3z" />
+      <ellipse cx="12" cy="6" rx="8" ry="3" fill="#FF6358" />
+      <path fill="#FF6358" d="M4 10c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+      <path fill="#FF6358" d="M4 14c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+    </svg>
+  ),
+  CMS: (p) => (
+    <svg {...base(p)}>
+      <path
+        fill="#94a3b8"
+        d="M4 3h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm0 7h6a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1zm10 0h6a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1z"
+      />
+    </svg>
+  ),
+  "REST APIs": (p) => (
+    <svg {...base(p)}>
+      <path
+        fill="#94a3b8"
+        d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm-1 14H9V8h2v8zm4-4h-2v4h-2v-4H9v-2h6v2z"
+      />
+    </svg>
+  ),
+  "VS Code": (p) => (
+    <svg {...base(p)}>
+      <path
+        fill="#007ACC"
+        d="M17 1.5L8.5 9.5 4 6 1.5 7.5l4 4.5-4 4.5L4 18l4.5-3.5L17 22.5 22.5 20V4L17 1.5zm.5 16.1l-7-5.6 7-5.6v11.2z"
+      />
+    </svg>
+  ),
 };
 
 export function getSkillIcon(label: string) {
@@ -221,5 +253,9 @@ export function getSkillIcon(label: string) {
   if (lower.includes("api rest")) return skillIcons["API REST"];
   if (lower === "apis" || lower.includes("api")) return skillIcons.APIs;
   if (lower.includes("crud")) return skillIcons.CRUD;
+  if (lower.includes("sql server") || lower.includes("sql")) return skillIcons["SQL Server"];
+  if (lower.includes("cms")) return skillIcons.CMS;
+  if (lower.includes("rest apis") || lower.includes("rest")) return skillIcons["REST APIs"];
+  if (lower.includes("vs code") || lower.includes("vscode")) return skillIcons["VS Code"];
   return null;
 }

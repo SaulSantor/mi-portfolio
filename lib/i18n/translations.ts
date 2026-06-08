@@ -2,7 +2,7 @@ import type { Locale } from "./types";
 
 const es = {
   meta: {
-    role: "Desarrollador Frontend & Mobile",
+    role: "Desarrollador Frontend y Mobile",
     tagline: "Interfaces limpias, apps que funcionan y código con propósito.",
   },
   nav: {
@@ -24,15 +24,16 @@ const es = {
     label: "Sobre mí",
     title: "Código con claridad y curiosidad",
     paragraphs: [
-      "Soy desarrollador frontend y mobile originario de Chihuahua, egresado de la Universidad Tecnológica de Chihuahua en modalidad bilingüe.",
-      "Trabajo con React Native, Next.js y stacks fullstack — desde apps móviles hasta backends con Python, bases de datos en tiempo real e IoT.",
-      "Me motiva transformar ideas en productos útiles. He trabajado en startups, construido sistemas para psicólogos, apps de bienestar con sensores físicos y más.",
+      "Soy desarrollador frontend y mobile originario de Chihuahua, enfocado en la creación de páginas web, aplicaciones web y apps móviles con React, Next.js y React Native. Cuento con experiencia práctica construyendo interfaces modernas con HTML, CSS, JavaScript y TypeScript, aplicando buenas prácticas de rendimiento, accesibilidad y experiencia de usuario.",
+      "Mi perfil se complementa con el desarrollo de aplicaciones web con paneles de administración, gestión de contenido mediante CMS, sistemas especializados como plataformas de gestión para psicólogos y apps de bienestar mental con integración de sensores físicos de ritmo cardíaco y respiración mediante IoT.",
+      "Aunque mi especialidad es el frontend y mobile, cuento con experiencia complementaria en backends con Python y Flask, bases de datos relacionales con SQL Server y NoSQL con MongoDB, manejo de datos en tiempo real y control de versiones con Git y GitHub.",
+      "Me formé en la Universidad Tecnológica de Chihuahua en modalidad bilingüe, con un nivel de inglés B1 que me permite leer documentación técnica, colaborar en equipos y comunicarme en entornos de trabajo internacionales.",
     ],
     highlights: [
-      { label: "Frontend", value: "React · Next.js" },
-      { label: "Mobile", value: "React Native" },
-      { label: "Backend", value: "Python · Flask" },
-      { label: "Datos", value: "MongoDB · Real-time" },
+      { label: "Frontend", value: "React · Next.js · TypeScript" },
+      { label: "Mobile", value: "React Native · Expo" },
+      { label: "Backend", value: "Python · Flask · REST APIs" },
+      { label: "Database", value: "MongoDB · SQL Server" },
     ],
   },
   experience: {
@@ -121,11 +122,14 @@ const es = {
   contact: {
     label: "Contacto",
     title: "¿Hablamos?",
-    subtitle:
-      "Si tienes una idea, un proyecto o simplemente quieres conectar, escríbeme o revisa mi trabajo en GitHub.",
+    subtitle: "Si tienes una idea, un proyecto o simplemente quieres conectar, escríbeme o revisa mi trabajo en GitHub.",
     githubCta: "GitHub",
     linkedinCta: "LinkedIn",
     emailCta: "Email",
+    emailSend: "Enviar mensaje",
+    emailCopy: "Copiar correo electrónico",
+    emailCopied: "¡Copiado!",
+    emailCopyBtn: "Copiar",
   },
   footer: {
     builtWith: "Hecho con Next.js y Tailwind.",
@@ -162,9 +166,10 @@ const en = {
     label: "About",
     title: "Clear code, genuine curiosity",
     paragraphs: [
-      "I'm a frontend and mobile developer from Chihuahua, Mexico, graduated from Universidad Tecnológica de Chihuahua in the bilingual program.",
-      "I work with React Native, Next.js, and full-stack setups — from mobile apps to Python backends, real-time databases, and IoT devices.",
-      "I enjoy turning ideas into real products. I've worked at startups, built management systems, wellness apps with physical sensors, and more.",
+      "I am a frontend and mobile developer from Chihuahua, focused on building websites, web applications and mobile apps using React, Next.js and React Native. I have hands-on experience creating modern interfaces with HTML, CSS, JavaScript and TypeScript, following good practices for performance, accessibility and user experience.",
+      "My profile includes experience building web applications with admin panels, content management through CMS, specialized systems such as platforms for psychologists and a mental wellness app with physical sensor integration for heart rate and breathing using IoT.",
+      "Although my main focus is frontend and mobile development, I also have complementary experience with backends using Python and Flask, relational databases with SQL Server, NoSQL with MongoDB, real-time data handling and version control with Git and GitHub.",
+      "I studied at the Universidad Tecnológica de Chihuahua in a bilingual program, with a B1 English level that allows me to read technical documentation, collaborate in teams and communicate in international work environments.",
     ],
     highlights: [
       { label: "Frontend", value: "React · Next.js" },
@@ -256,11 +261,14 @@ const en = {
   contact: {
     label: "Contact",
     title: "Let's talk",
-    subtitle:
-      "Whether you have an idea, a project, or just want to connect — reach out or check my work on GitHub.",
+    subtitle: "Whether you have an idea, a project, or just want to connect — reach out or check my work on GitHub.",
     githubCta: "GitHub",
     linkedinCta: "LinkedIn",
     emailCta: "Email",
+    emailSend: "Send message",
+    emailCopy: "Copy email address",
+    emailCopied: "Copied!",
+    emailCopyBtn: "Copy",
   },
   footer: {
     builtWith: "Built with Next.js and Tailwind.",

@@ -3,6 +3,8 @@
 import { useApp } from "@/components/providers/AppProvider";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { surface } from "@/lib/styles/theme";
+import { siteConfig } from "@/lib/data/site";
+import Image from "next/image";
 
 export function About() {
   const { t } = useApp();
@@ -32,21 +34,24 @@ export function About() {
           </ScrollReveal>
 
           <ScrollReveal delay={160}>
-            <ul className="grid grid-cols-2 gap-3">
-              {t.about.highlights.map((item) => (
-                <li
-                  key={item.label}
-                  className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/40 hover:shadow-[0_8px_20px_-8px_rgba(6,182,212,0.2)] dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-cyan-400/30"
-                >
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-zinc-500">
-                    {item.label}
-                  </p>
-                  <p className={`text-sm font-medium ${surface.subheading}`}>
-                    {item.value}
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <div
+                  className="absolute -inset-3 rounded-2xl opacity-40 blur-2xl dark:opacity-30"
+                  style={{ background: "linear-gradient(135deg, #22d3ee, #818cf8)" }}
+                  aria-hidden
+                />
+                <div className="relative h-80 w-64 overflow-hidden rounded-2xl border border-slate-200 shadow-lg sm:h-96 sm:w-72 dark:border-white/10">
+                  <Image
+                    src={siteConfig.avatar}
+                    alt={`Foto de ${siteConfig.name}`}
+                    fill
+                    className="object-cover object-center"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
       </div>
