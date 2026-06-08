@@ -11,7 +11,7 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className={`bg-white px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
+      className={`bg-slate-50 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
     >
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
@@ -48,7 +48,7 @@ export function Experience() {
                 </span>
 
                 <ScrollReveal delay={index * 80}>
-                  <article className="rounded-2xl border border-slate-200 border-l-2 border-l-emerald-500 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_12px_30px_-12px_rgba(15,23,42,0.08)] sm:p-7 dark:border-white/10 dark:border-l-emerald-400/70 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:hover:border-emerald-400/40 dark:hover:shadow-[0_20px_60px_-20px_rgba(52,211,153,0.25)]">
+                  <article className="rounded-2xl border border-slate-200 border-l-2 border-l-emerald-500 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_12px_30px_-12px_rgba(15,23,42,0.08)] sm:p-7 dark:border-white/10 dark:border-l-emerald-400/70 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:hover:border-emerald-400/40 dark:hover:shadow-[0_20px_60px_-20px_rgba(52,211,153,0.25)]">
                     <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                       <div>
                         <h3 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-zinc-50">

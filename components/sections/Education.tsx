@@ -25,7 +25,7 @@ export function Education() {
   return (
     <section
       id="education"
-      className={`bg-slate-50 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
+      className={`bg-slate-100 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
     >
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
@@ -62,7 +62,7 @@ export function Education() {
                 </span>
 
                 <ScrollReveal delay={index * 80}>
-                  <article className="rounded-2xl border border-slate-200 border-l-2 border-l-sky-500 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_12px_30px_-12px_rgba(15,23,42,0.08)] sm:p-7 dark:border-white/10 dark:border-l-sky-400/70 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:hover:border-sky-400/40 dark:hover:shadow-[0_20px_60px_-20px_rgba(56,189,248,0.25)]">
+                  <article className="rounded-2xl border border-slate-200 border-l-2 border-l-sky-500 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_12px_30px_-12px_rgba(15,23,42,0.08)] sm:p-7 dark:border-white/10 dark:border-l-sky-400/70 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:hover:border-sky-400/40 dark:hover:shadow-[0_20px_60px_-20px_rgba(56,189,248,0.25)]">
                     <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                       <h3 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-zinc-50">
                         {entry.institution}
@@ -96,7 +96,7 @@ export function Education() {
                         return (
                           <li
                             key={degreeId}
-                            className="flex flex-col gap-2 rounded-xl border border-slate-200 bg-slate-50 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 dark:border-white/5 dark:bg-white/[0.02]"
+                            className="flex flex-col gap-2 rounded-xl border border-slate-300 bg-slate-100 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 dark:border-white/5 dark:bg-white/[0.02]"
                           >
                             <p className="font-medium text-slate-700 dark:text-zinc-200">
                               {degree.title}

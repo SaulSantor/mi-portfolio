@@ -12,7 +12,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className={`bg-white px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
+      className={`bg-slate-100 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
     >
       <div className="mx-auto max-w-6xl">
         <ScrollReveal>

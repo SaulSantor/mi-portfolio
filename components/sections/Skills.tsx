@@ -37,7 +37,7 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className={`bg-slate-50 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
+      className={`bg-slate-100 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
     >
       <div className="mx-auto max-w-6xl">
         <ScrollReveal>
@@ -64,7 +64,7 @@ export function Skills() {
             return (
               <ScrollReveal key={category.id} delay={index * 60}>
                 <div
-                  className={`group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.18)] sm:p-7 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px dark:border-white/10 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] dark:hover:border-cyan-400/30 dark:hover:shadow-[0_20px_60px_-20px_rgba(34,211,238,0.25)] ${cardAccent[category.accent]}`}
+                  className={`group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.25)] sm:p-7 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px dark:border-white/10 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] dark:hover:border-cyan-400/30 dark:hover:shadow-[0_20px_60px_-20px_rgba(34,211,238,0.25)] ${cardAccent[category.accent]}`}
                 >
                   <h3
                     className={`mb-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] ${labelAccent[category.accent]}`}

@@ -91,7 +91,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 sm:p-7 dark:border-white/10 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] ${accentGlow[project.accent]}`}
+      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-500 hover:-translate-y-1 sm:p-7 dark:border-white/10 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] ${accentGlow[project.accent]}`}
     >
       <div className="mb-5 flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">

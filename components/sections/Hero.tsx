@@ -39,7 +39,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-50 px-6 pt-28 pb-20 dark:bg-transparent"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-slate-100 px-6 pt-28 pb-20 dark:bg-transparent"
     >
       <div
         className="pointer-events-none absolute inset-0 -z-10"

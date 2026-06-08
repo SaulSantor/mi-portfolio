@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
-/* Reemplaza el dark por defecto (prefers-color-scheme) → solo clase .dark en <html> */
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -30,11 +29,34 @@ html:not(.dark) {
 }
 
 body {
-  background-color: #f8fafc;
+  background-color: #e8edf5;
 }
 
 html.dark body {
   background-color: var(--color-canvas);
+}
+
+/* Light mode: secciones alternadas con contraste claro */
+html:not(.dark) #hero {
+  background-color: #eef2f9;
+}
+html:not(.dark) #projects {
+  background-color: #e4eaf3;
+}
+html:not(.dark) #about {
+  background-color: #eef2f9;
+}
+html:not(.dark) #skills {
+  background-color: #e4eaf3;
+}
+html:not(.dark) #experience {
+  background-color: #eef2f9;
+}
+html:not(.dark) #education {
+  background-color: #e4eaf3;
+}
+html:not(.dark) #contact {
+  background-color: #eef2f9;
 }
 
 ::selection {
@@ -130,8 +152,8 @@ html:not(.dark) .gradient-text {
 
 html:not(.dark) .hero-grid {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
 }
 
 .gradient-border {
@@ -159,104 +181,52 @@ html.dark .gradient-border {
 }
 
 @keyframes gradient-pan {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @keyframes blob-drift {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(40px, -30px) scale(1.1);
-  }
-  66% {
-    transform: translate(-30px, 30px) scale(0.95);
-  }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
 }
 
 @keyframes conic-spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
 
 @keyframes blink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
 @keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-blob {
-  animation: blob-drift 18s ease-in-out infinite;
-}
-
-.animate-blob-slow {
-  animation: blob-drift 26s ease-in-out infinite;
-}
-
-.animate-conic {
-  animation: conic-spin 30s linear infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-.animate-blink {
-  animation: blink 1s steps(1) infinite;
-}
-
-.animate-fade-up {
-  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
+.animate-blob { animation: blob-drift 18s ease-in-out infinite; }
+.animate-blob-slow { animation: blob-drift 26s ease-in-out infinite; }
+.animate-conic { animation: conic-spin 30s linear infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-blink { animation: blink 1s steps(1) infinite; }
+.animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
     transition: none;
   }
-
   .scroll-reveal {
     opacity: 1;
     transform: none;
     transition: none;
   }
-
   .animate-blob,
   .animate-blob-slow,
   .animate-conic,

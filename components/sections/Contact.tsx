@@ -89,11 +89,11 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className={`bg-slate-50 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
+      className={`bg-slate-100 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
     >
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
-          <div className="relative overflow-hidden rounded-3xl p-8 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.08)] sm:p-12">
+          <div className="relative overflow-hidden rounded-3xl bg-white p-8 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] sm:p-12">
             {/* <div
               className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-cyan-300/20 blur-3xl dark:bg-cyan-500/20"
               aria-hidden
@@ -121,7 +121,7 @@ export function Contact() {
                   href={siteConfig.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-900/30 hover:shadow-[0_12px_30px_-12px_rgba(15,23,42,0.15)] dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-zinc-50/30 dark:hover:bg-white/[0.08] dark:hover:shadow-[0_12px_30px_-12px_rgba(255,255,255,0.2)]"
+                  className="group flex flex-col items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-900/30 hover:shadow-[0_12px_30px_-12px_rgba(15,23,42,0.15)] dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-zinc-50/30 dark:hover:bg-white/[0.08] dark:hover:shadow-[0_12px_30px_-12px_rgba(255,255,255,0.2)]"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-900 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-50">
                     <GitHubIcon />
@@ -141,7 +141,7 @@ export function Contact() {
                   href={siteConfig.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/60 hover:bg-cyan-50/30 hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.25)] dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-cyan-400/40 dark:hover:bg-cyan-500/[0.08] dark:hover:shadow-[0_12px_30px_-12px_rgba(34,211,238,0.35)]"
+                  className="group flex flex-col items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/60 hover:bg-cyan-50/30 hover:shadow-[0_12px_30px_-12px_rgba(6,182,212,0.25)] dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-cyan-400/40 dark:hover:bg-cyan-500/[0.08] dark:hover:shadow-[0_12px_30px_-12px_rgba(34,211,238,0.35)]"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-cyan-700 dark:border-white/10 dark:bg-zinc-950 dark:text-cyan-300">
                     <LinkedInIcon />
@@ -159,7 +159,7 @@ export function Contact() {
 
                 <a
                   href={`mailto:${email}`}
-                  className="group flex flex-col items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/60 hover:bg-violet-50/30 hover:shadow-[0_12px_30px_-12px_rgba(139,92,246,0.25)] dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-violet-400/40 dark:hover:bg-violet-500/[0.08] dark:hover:shadow-[0_12px_30px_-12px_rgba(165,180,252,0.35)]"
+                  className="group flex flex-col items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/60 hover:bg-violet-50/30 hover:shadow-[0_12px_30px_-12px_rgba(139,92,246,0.25)] dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-violet-400/40 dark:hover:bg-violet-500/[0.08] dark:hover:shadow-[0_12px_30px_-12px_rgba(165,180,252,0.35)]"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-violet-700 dark:border-white/10 dark:bg-zinc-950 dark:text-violet-300">
                     <MailIcon />
@@ -178,7 +178,7 @@ export function Contact() {
 
               <div
                 onClick={handleCopy}
-                className="mt-8 cursor-pointer rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all duration-200 hover:border-cyan-500/40 hover:bg-cyan-50/50 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-cyan-400/30 dark:hover:bg-white/[0.06]"
+                className="mt-8 cursor-pointer rounded-2xl border border-slate-300 bg-slate-100 p-4 transition-all duration-200 hover:border-cyan-500/40 hover:bg-cyan-50/50 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-cyan-400/30 dark:hover:bg-white/[0.06]"
               >
                 <p className="flex items-center gap-2 font-mono text-sm text-slate-700 dark:text-zinc-300">
                   <MailIcon className="h-4 w-4 text-cyan-700 dark:text-cyan-300" />

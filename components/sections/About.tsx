@@ -12,7 +12,7 @@ export function About() {
   return (
     <section
       id="about"
-      className={`bg-white px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
+      className={`bg-slate-50 px-6 py-24 dark:bg-transparent sm:py-32 ${surface.section}`}
     >
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
@@ -46,6 +46,7 @@ export function About() {
                     src={siteConfig.avatar}
                     alt={`Foto de ${siteConfig.name}`}
                     fill
+                    sizes="(max-width: 640px) 256px, 288px"
                     className="object-cover object-center"
                     priority
                   />
