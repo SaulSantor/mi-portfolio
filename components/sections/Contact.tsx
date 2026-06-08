@@ -93,7 +93,7 @@ export function Contact() {
     >
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
-          <div className="relative overflow-hidden rounded-3xl bg-white p-8 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] sm:p-12">
+          <div className="relative overflow-hidden rounded-3xl p-8 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)] sm:p-12">
             {/* <div
               className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-cyan-300/20 blur-3xl dark:bg-cyan-500/20"
               aria-hidden
