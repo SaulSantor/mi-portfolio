@@ -67,14 +67,14 @@ const accentDot: Record<Project["accent"], string> = {
 };
 
 const accentButton: Record<Project["accent"], string> = {
-  cyan: "border-cyan-500/30 text-cyan-700 hover:bg-cyan-50 hover:border-cyan-500/60 dark:border-cyan-400/30 dark:text-cyan-200 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/60",
+  cyan: "border-cyan-500/30 hover:bg-cyan-50 hover:border-cyan-500/60 hover:text-cyan-700 dark:border-cyan-400/30 dark:text-cyan-200 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/60",
   violet:
-    "border-violet-500/30 text-violet-700 hover:bg-violet-50 hover:border-violet-500/60 dark:border-violet-400/30 dark:text-violet-200 dark:hover:bg-violet-500/10 dark:hover:border-violet-400/60",
+    "border-violet-500/30 hover:bg-violet-50 hover:border-violet-500/60 hover:text-violet-700 dark:border-violet-400/30 dark:text-violet-200 dark:hover:bg-violet-500/10 dark:hover:border-violet-400/60",
   amber:
-    "border-amber-500/30 text-amber-700 hover:bg-amber-50 hover:border-amber-500/60 dark:border-amber-400/30 dark:text-amber-200 dark:hover:bg-amber-500/10 dark:hover:border-amber-400/60",
-  rose: "border-rose-500/30 text-rose-700 hover:bg-rose-50 hover:border-rose-500/60 dark:border-rose-400/30 dark:text-rose-200 dark:hover:bg-rose-500/10 dark:hover:border-rose-400/60",
+    "border-amber-500/30 hover:bg-amber-50 hover:border-amber-500/60 hover:text-amber-700 dark:border-amber-400/30 dark:text-amber-200 dark:hover:bg-amber-500/10 dark:hover:border-amber-400/60",
+  rose: "border-rose-500/30 hover:bg-rose-50 hover:border-rose-500/60 hover:text-rose-700 dark:border-rose-400/30 dark:text-rose-200 dark:hover:bg-rose-500/10 dark:hover:border-rose-400/60",
   emerald:
-    "border-emerald-500/30 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-500/60 dark:border-emerald-400/30 dark:text-emerald-200 dark:hover:bg-emerald-500/10 dark:hover:border-emerald-400/60",
+    "border-emerald-500/30 hover:bg-emerald-50 hover:border-emerald-500/60 hover:text-emerald-700 dark:border-emerald-400/30 dark:text-emerald-200 dark:hover:bg-emerald-500/10 dark:hover:border-emerald-400/60",
 };
 
 type ProjectCardProps = {
@@ -115,7 +115,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           return (
             <span
               key={tag}
-              className={`inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 transition-colors hover:border-cyan-500/50 hover:bg-cyan-50 hover:text-cyan-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:text-white ${accentButton[project.accent]}`}
+              className={`inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 transition-colors dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:text-white ${accentButton[project.accent]}`}
             >
               {Icon ? <Icon className="h-3 w-3" /> : null}
               {tag}
