@@ -48,7 +48,7 @@ export const surface = {
   pill: "inline-flex w-fit shrink-0 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-zinc-300",
 
   /** Timeline */
-  timeline: "border-l border-slate-200 dark:border-white/10",
+  timeline: "border-l border-slate-300 dark:border-white/10",
   timelineDot:
     "absolute -left-[2.45rem] sm:-left-[2.95rem] top-2 flex h-4 w-4 items-center justify-center rounded-full bg-slate-50 ring-2 ring-emerald-500/60 sm:left-[-2.95rem] dark:bg-zinc-950 dark:ring-emerald-400/60",
   timelineDotCyan:

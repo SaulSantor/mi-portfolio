@@ -24,7 +24,7 @@ export const projects: Project[] = [
     description:
       "Sistema de gestión para psicólogos con registro de pacientes y sesiones.",
     tags: ["HTML", "CSS", "JavaScript"],
-    repoUrl: "https://github.com/SaulSantor/bitacora-psicologos",
+    repoUrl: "",
     accent: "violet",
   },
   {
