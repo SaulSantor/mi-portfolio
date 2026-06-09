@@ -34,7 +34,7 @@ export function SkillBadge({ label, accent }: SkillBadgeProps) {
 
   return (
     <span
-      className={`group inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 ${accentBorderStyles[accent]}`}
+      className={`skill-badge group inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 ${accentBorderStyles[accent]}`}
     >
       {iconJsx ? (
         <span className="flex h-4 w-4 shrink-0 items-center justify-center">

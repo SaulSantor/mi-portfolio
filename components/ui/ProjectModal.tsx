@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Project } from "@/lib/data/projects";
 import { getSkillIcon } from "@/lib/data/skillIcons";
@@ -33,34 +33,55 @@ const accentButton: Record<Project["accent"], string> = {
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+  const [imgError, setImgError] = useState(false);
+
+  // Trigger entrance animation on mount
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setVisible(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  // Animated close: run exit animation then call onClose
+  const handleClose = () => {
+    setVisible(false);
+    setTimeout(onClose, 200);
+  };
 
   useEffect(() => {
     previouslyFocused.current = document.activeElement as HTMLElement;
     modalRef.current?.focus();
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") handleClose();
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       previouslyFocused.current?.focus();
     };
-  }, [onClose]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4"
-      onClick={onClose}
+      className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-200 ${
+        visible ? "bg-black/75" : "bg-black/0"
+      }`}
+      onClick={handleClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby={`project-title-${project.id}`}>
       <div
         ref={modalRef}
-        className="relative max-h-full w-full max-w-lg overflow-y-auto rounded-lg bg-white p-6 shadow-lg outline-none dark:bg-white/[0.04] dark:backdrop-blur-xl"
+        className={`relative max-h-full w-full max-w-lg overflow-y-auto rounded-lg bg-white/[0.75] p-6 shadow-lg outline-none dark:bg-white/[0.1] dark:backdrop-blur-xl transition-all duration-200 ${
+          visible
+            ? "opacity-100 scale-100 translate-y-0"
+            : "opacity-0 scale-95 translate-y-4"
+        }`}
         onClick={(e) => e.stopPropagation()}
         tabIndex={-1}>
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-3 right-3 rounded-full p-1.5 text-slate-500 hover:bg-slate-100 dark:text-zinc-400 dark:hover:bg-white/10"
           aria-label="Close modal">
           <svg
@@ -90,13 +111,24 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         <div className="relative mb-4 aspect-video w-full overflow-hidden rounded-md bg-slate-100 dark:bg-white/5">
-          <Image
-            src={getProjectImageSrc(project.id)}
-            alt={`${project.title} screenshot`}
-            fill
-            className="object-cover"
-            sizes="(max-width: 640px) 100vw, 640px"
-          />
+          {imgError ? (
+            // Fallback cuando la imagen no existe
+            <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-slate-400 dark:text-zinc-600">
+              <svg className="h-10 w-10 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 19.5h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+              </svg>
+              <span className="text-xs font-medium opacity-50">Sin vista previa</span>
+            </div>
+          ) : (
+            <Image
+              src={getProjectImageSrc(project.id)}
+              alt={`${project.title} screenshot`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 640px"
+              onError={() => setImgError(true)}
+            />
+          )}
         </div>
 
         <p className="mb-4 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">

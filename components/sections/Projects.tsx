@@ -1,13 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import dynamic from "next/dynamic";
 import { useApp } from "@/components/providers/AppProvider";
 import { projects } from "@/lib/data/projects";
 import type { Project } from "@/lib/data/projects";
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { ProjectModal } from "@/components/ui/ProjectModal";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { surface } from "@/lib/styles/theme";
+
+// Carga el modal solo cuando se necesita — no forma parte del bundle inicial
+const ProjectModal = dynamic(
+  () => import("@/components/ui/ProjectModal").then((m) => m.ProjectModal),
+  {
+    ssr: false, // El modal es 100% client-side, no necesita SSR
+    loading: () => null, // Sin spinner: el modal aparece con su propia animación
+  },
+);
 
 export function Projects() {
   const { t } = useApp();
@@ -43,11 +52,14 @@ export function Projects() {
         </div>
       </div>
 
+      {/* El modal se carga en su propio chunk solo cuando selectedProject existe */}
       {selectedProject ? (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
+        <Suspense fallback={null}>
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        </Suspense>
       ) : null}
     </section>
   );

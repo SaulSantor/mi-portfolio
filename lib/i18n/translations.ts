@@ -19,6 +19,12 @@ const es = {
     greeting: "Hola, soy",
     ctaProjects: "Ver proyectos",
     ctaContact: "Contactar",
+    stats: [
+      { value: "6+", label: "Proyectos" },
+      { value: "2+", label: "Años aprendiendo" },
+      { value: "3", label: "Tecnologías mobile" },
+      { value: "B1", label: "Nivel inglés" },
+    ],
   },
   about: {
     label: "Sobre mí",
@@ -161,6 +167,12 @@ const en = {
     greeting: "Hi, I'm",
     ctaProjects: "View projects",
     ctaContact: "Get in touch",
+    stats: [
+      { value: "6+", label: "Projects" },
+      { value: "2+", label: "Years learning" },
+      { value: "3", label: "Mobile techs" },
+      { value: "B1", label: "English level" },
+    ],
   },
   about: {
     label: "About",

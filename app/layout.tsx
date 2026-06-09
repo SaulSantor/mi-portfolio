@@ -19,13 +19,66 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+const BASE_URL = "https://saulsanchez.dev"; // ← cambia a tu dominio real
+
 export const metadata: Metadata = {
-  title: `${siteConfig.name} — Frontend & Mobile Developer`,
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: `${siteConfig.name} — Frontend & Mobile Developer`,
+    template: `%s | ${siteConfig.name}`,
+  },
   description:
-    "Portfolio de Saul Sanchez — desarrollador frontend y mobile.",
+    "Desarrollador frontend y mobile. Especializado en React, Next.js y React Native. Creando interfaces limpias y apps que funcionan.",
+  keywords: [
+    "frontend developer",
+    "mobile developer",
+    "React",
+    "Next.js",
+    "React Native",
+    "TypeScript",
+    "Chihuahua",
+    "México",
+  ],
+  authors: [{ name: siteConfig.name, url: siteConfig.github }],
+  creator: siteConfig.name,
   openGraph: {
-    title: `${siteConfig.name} — Portfolio`,
     type: "website",
+    locale: "es_MX",
+    url: BASE_URL,
+    siteName: `${siteConfig.name} — Portfolio`,
+    title: `${siteConfig.name} — Frontend & Mobile Developer`,
+    description:
+      "Interfaces limpias, apps que funcionan y código con propósito.",
+    images: [
+      {
+        url: "/og-image.png", // coloca tu imagen en /public/og-image.png (1200×630)
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — Portfolio`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — Frontend & Mobile Developer`,
+    description:
+      "Interfaces limpias, apps que funcionan y código con propósito.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
 };
 
