@@ -12,8 +12,7 @@ function ExternalLinkIcon() {
       viewBox="0 0 24 24"
       stroke="currentColor"
       strokeWidth={2}
-      aria-hidden
-    >
+      aria-hidden>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -31,8 +30,7 @@ function PlayIcon() {
       viewBox="0 0 24 24"
       stroke="currentColor"
       strokeWidth={2}
-      aria-hidden
-    >
+      aria-hidden>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -79,20 +77,19 @@ const accentButton: Record<Project["accent"], string> = {
 
 type ProjectCardProps = {
   project: Project;
+  onClick?: () => void;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, onClick }: ProjectCardProps) {
   const { t } = useApp();
-  const copy =
-    t.projects.items[project.id as keyof typeof t.projects.items];
-  const tags =
-    "tags" in copy && copy.tags ? copy.tags : project.tags;
+  const copy = t.projects.items[project.id as keyof typeof t.projects.items];
+  const tags = "tags" in copy && copy.tags ? copy.tags : project.tags;
   const description = copy.description;
 
   return (
     <article
-      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-500 hover:-translate-y-1 sm:p-7 dark:border-white/10 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] ${accentGlow[project.accent]}`}
-    >
+      className={`group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-500 hover:-translate-y-1 sm:p-7 dark:border-white/10 dark:bg-white/[0.04] dark:backdrop-blur-xl dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] ${accentGlow[project.accent]}`}
+      onClick={onClick}>
       <div className="mb-5 flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           <span
@@ -115,8 +112,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           return (
             <span
               key={tag}
-              className={`inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 transition-colors dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:text-white ${accentButton[project.accent]}`}
-            >
+              className={`inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 transition-colors dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 dark:hover:text-white ${accentButton[project.accent]}`}>
               {Icon ? <Icon className="h-3 w-3" /> : null}
               {tag}
             </span>
@@ -130,8 +126,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.repoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group/btn inline-flex items-center gap-1.5 rounded-lg border bg-white px-3 py-1.5 text-xs font-medium backdrop-blur-sm transition-all duration-200 dark:bg-white/[0.02] ${accentButton[project.accent]}`}
-          >
+            className={`group/btn inline-flex items-center gap-1.5 rounded-lg border bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700 backdrop-blur-sm transition-all duration-200 dark:bg-white/[0.02] ${accentButton[project.accent]}`}>
             <ExternalLinkIcon />
             {t.projects.viewRepo}
           </a>
@@ -141,8 +136,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group/btn inline-flex items-center gap-1.5 rounded-lg border bg-white px-3 py-1.5 text-xs font-medium backdrop-blur-sm transition-all duration-200 dark:bg-white/[0.02] ${accentButton[project.accent]}`}
-          >
+            className={`group/btn inline-flex items-center gap-1.5 rounded-lg border bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700 backdrop-blur-sm transition-all duration-200 dark:bg-white/[0.02] ${accentButton[project.accent]}`}>
             <PlayIcon />
             {t.projects.viewDemo}
           </a>
