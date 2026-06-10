@@ -124,7 +124,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               src={getProjectImageSrc(project.id)}
               alt={`${project.title} screenshot`}
               fill
-              className="object-cover"
+              className="object-cover object-center transition-opacity duration-200"
               sizes="(max-width: 640px) 100vw, 640px"
               onError={() => setImgError(true)}
             />

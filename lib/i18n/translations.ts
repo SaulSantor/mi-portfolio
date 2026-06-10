@@ -184,10 +184,10 @@ const en = {
       "I studied at the Universidad Tecnológica de Chihuahua in a bilingual program, with a B1 English level that allows me to read technical documentation, collaborate in teams and communicate in international work environments.",
     ],
     highlights: [
-      { label: "Frontend", value: "React · Next.js" },
-      { label: "Mobile", value: "React Native" },
-      { label: "Backend", value: "Python · Flask" },
-      { label: "Data", value: "MongoDB · Real-time" },
+      { label: "Frontend", value: "React · Next.js · TypeScript" },
+      { label: "Mobile", value: "React Native · Expo" },
+      { label: "Backend", value: "Python · Flask · REST APIs" },
+      { label: "Database", value: "MongoDB · SQL Server" },
     ],
   },
   experience: {
