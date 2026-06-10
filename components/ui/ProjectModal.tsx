@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { Project } from "@/lib/data/projects";
 import { getSkillIcon } from "@/lib/data/skillIcons";
 import { getProjectImageSrc } from "@/lib/data/projectImages";
+import { useApp } from "@/components/providers/AppProvider";
 
 type ProjectModalProps = {
   project: Project;
@@ -31,6 +32,9 @@ const accentButton: Record<Project["accent"], string> = {
 };
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const { t } = useApp();
+  const copy = t.projects.items[project.id as keyof typeof t.projects.items];
+  const description = copy.longDescription;
   const modalRef = useRef<HTMLDivElement>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -114,10 +118,22 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {imgError ? (
             // Fallback cuando la imagen no existe
             <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-slate-400 dark:text-zinc-600">
-              <svg className="h-10 w-10 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 19.5h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+              <svg
+                className="h-10 w-10 opacity-40"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                aria-hidden>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 19.5h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                />
               </svg>
-              <span className="text-xs font-medium opacity-50">Sin vista previa</span>
+              <span className="text-xs font-medium opacity-50">
+                {t.projects.noImage}
+              </span>
             </div>
           ) : (
             <Image
@@ -132,7 +148,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         <p className="mb-4 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
-          {project.description}
+          {description}
         </p>
 
         <div className="mb-4 flex flex-wrap gap-1.5">
@@ -157,7 +173,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-1.5 rounded-lg border bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700 backdrop-blur-sm transition-all duration-200 dark:bg-white/[0.02] ${accentButton[project.accent]}`}>
               <ExternalLinkIcon />
-              View Repo
+              {t.projects.viewRepo}
             </a>
           ) : null}
           {project.demoUrl ? (
@@ -167,11 +183,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-1.5 rounded-lg border bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700 backdrop-blur-sm transition-all duration-200 dark:bg-white/[0.02] ${accentButton[project.accent]}`}>
               <PlayIcon />
-              View Demo
+              {t.projects.viewDemo}
             </a>
           ) : !project.repoUrl ? (
             <span className="text-xs text-slate-500 dark:text-zinc-500">
-              Private
+              {t.projects.private}
             </span>
           ) : null}
         </div>

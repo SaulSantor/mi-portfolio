@@ -97,30 +97,43 @@ const es = {
     viewRepo: "Ver repositorio",
     viewDemo: "Ver demo",
     private: "Proyecto privado / en desarrollo",
+    noImage: "Sin vista previa",
     items: {
       serenity: {
         description:
           "App de bienestar mental: móvil React Native, web, backend Flask/Python, MongoDB e IoT con sensores de ritmo cardíaco y respiración.",
+        longDescription:
+          "Serenity es una aplicación integral de bienestar mental diseñada para ayudar a los usuarios a manejar el estrés y mejorar su bienestar. La app móvil, construida con React Native, ofrece sesiones de meditación guiada, ejercicios de respiración y seguimiento del estado de ánimo. El cliente web proporciona acceso a recursos adicionales y contenido personalizado. El backend, desarrollado con Flask y Python, maneja la autenticación de usuarios, gestión de sesiones y almacenamiento de datos en MongoDB. Además, Serenity se integra con sensores IoT para monitorear en tiempo real el ritmo cardíaco y los patrones de respiración, brindando a los usuarios información sobre sus respuestas fisiológicas durante las prácticas de mindfulness.",
       },
       psychcalendar: {
         description:
           "Sistema de gestión para psicólogos con registro de pacientes y sesiones.",
+        longDescription:
+          "PsychCalendar es una plataforma de gestión diseñada específicamente para psicólogos, que facilita la organización y seguimiento de pacientes y sesiones. La aplicación permite a los profesionales de la salud mental registrar información detallada sobre cada paciente, programar citas, llevar un historial de sesiones y gestionar notas clínicas. Con una interfaz intuitiva, PsychCalendar ayuda a los psicólogos a mantener toda la información relevante en un solo lugar, mejorando la eficiencia administrativa y permitiéndoles centrarse en brindar atención de calidad a sus pacientes.",
       },
       mytime: {
         description:
           "App móvil para organización y seguimiento del tiempo personal.",
+        longDescription:
+          "MyTime es una aplicación móvil diseñada para ayudar a los usuarios a organizar su tiempo y seguir su progreso. Con una interfaz sencilla y funcional, MyTime permite crear tareas, establecer recordatorios y visualizar su agenda de manera intuitiva.",
       },
       taskmanager: {
         description:
           "App de gestión de tareas migrada de arquitectura monolítica a serverless. Login, CRUD, comentarios, historial, notificaciones, búsqueda y exportación CSV.",
+        longDescription:
+          "TaskManager es una aplicación de gestión de tareas que ha sido migrada de una arquitectura monolítica a una arquitectura serverless. Incluye funcionalidades como inicio de sesión, operaciones CRUD, comentarios, historial, notificaciones, búsqueda y exportación de datos en formato CSV.",
       },
       api: {
         description:
           "API REST con operaciones CRUD completas para gestión de usuarios.",
+        longDescription:
+          "La API REST proporciona operaciones CRUD completas para la gestión de usuarios, permitiendo crear, leer, actualizar y eliminar información de los usuarios en el sistema.",
         tags: ["JavaScript", "API REST", "CRUD"],
       },
       apideportes: {
         description:
+          "App web que consume y presenta datos deportivos mediante APIs.",
+        longDescription:
           "App web que consume y presenta datos deportivos mediante APIs.",
       },
     },
@@ -128,7 +141,8 @@ const es = {
   contact: {
     label: "Contacto",
     title: "¿Hablamos?",
-    subtitle: "Si tienes una idea, un proyecto o simplemente quieres conectar, escríbeme o revisa mi trabajo en GitHub.",
+    subtitle:
+      "Si tienes una idea, un proyecto o simplemente quieres conectar, escríbeme o revisa mi trabajo en GitHub.",
     githubCta: "GitHub",
     linkedinCta: "LinkedIn",
     emailCta: "Email",
@@ -244,36 +258,50 @@ const en = {
     viewRepo: "View repository",
     viewDemo: "View demo",
     private: "Private / work in progress",
+    noImage: "No preview available",
     items: {
       serenity: {
         description:
           "Mental wellness app: React Native mobile, web client, Flask/Python backend, MongoDB, and IoT with heart rate and breathing sensors.",
+        longDescription:
+          "Serenity is a comprehensive mental wellness application designed to help users manage stress and improve their well-being. The mobile app, built with React Native, offers guided meditation sessions, breathing exercises, and mood tracking features. The web client provides access to additional resources and personalized content. The backend, developed with Flask and Python, handles user authentication, session management, and data storage in MongoDB. Additionally, Serenity integrates with IoT sensors to monitor heart rate and breathing patterns in real-time, providing users with insights into their physiological responses during mindfulness practices.",
       },
       psychcalendar: {
         description:
           "Management system for psychologists with patient and session records.",
+        longDescription:
+          "PsychCalendar is a management platform specifically designed for psychologists, facilitating the organization and tracking of patients and sessions. The application allows mental health professionals to record detailed information about each patient, schedule appointments, maintain a session history, and manage clinical notes. With an intuitive interface, PsychCalendar helps psychologists keep all relevant information in one place, improving administrative efficiency and allowing them to focus on providing quality care to their patients.",
       },
       mytime: {
         description: "Mobile app for organizing and tracking personal time.",
+        longDescription:
+          "MyTime is a mobile application designed to help users organize their time and track their progress. With a simple and functional interface, MyTime allows users to create tasks, set reminders, and visualize their schedule in an intuitive way.",
       },
       taskmanager: {
         description:
           "Task management app migrated from monolithic to serverless architecture. Login, CRUD, comments, history, notifications, search and CSV export.",
+        longDescription:
+          "TaskManager is a task management application that has been migrated from a monolithic to a serverless architecture. It includes functionalities such as user authentication, CRUD operations, comments, history, notifications, search, and CSV export.",
       },
       api: {
         description: "REST API with full CRUD operations for user management.",
-        tags: ["JavaScript", "API REST", "CRUD"],
+        longDescription:
+          "The REST API provides full CRUD operations for user management, allowing developers to create, read, update, and delete user information in the system.",
+        tags: ["JavaScript", "REST API", "CRUD"],
       },
       apideportes: {
         description:
           "Web app that fetches and displays sports data through APIs.",
+        longDescription:
+          "App web que consume y presenta datos deportivos mediante APIs.",
       },
     },
   },
   contact: {
     label: "Contact",
     title: "Let's talk",
-    subtitle: "Whether you have an idea, a project, or just want to connect — reach out or check my work on GitHub.",
+    subtitle:
+      "Whether you have an idea, a project, or just want to connect — reach out or check my work on GitHub.",
     githubCta: "GitHub",
     linkedinCta: "LinkedIn",
     emailCta: "Email",
